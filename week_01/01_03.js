@@ -1,27 +1,30 @@
-input = "hello my name is sparta";
+// Q.  다음과 같은 문자열을 입력받았을 때, 어떤 알파벳이 가장 많이 포함되어 있는지 반환하시오
 
-const alphabet_occurence_array = [
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-];
+const input = "hello my name is sparta";
 
-function find_max_occurred_alphabet(input) {
-  //  이 부분을 채워보세요!
-  for (let i = 0; i < input.length; i++) {
-    //   i가 for문을 돌면서 알파벳이 아닐경우 넘긴다
-    if (!i == /^[a-zA-Z]+$/) {
-      continue;
-    } else {
-      // 아스키(i) - 아스키('a') = arr_index로 넣어준다
-      arr_index = input.charCodeAt([i]) - input.charCodeAt(["a"]);
-      //   기존 alphabet배열에 arr_index를 하나씩 업데이트한다.
-      alphabet_occurence_array[arr_index] += 1;
-    }
-  }
-  return "alphabet_occurence_array";
-}
+const alphabet_occurence_array = Array(26).fill(0);
+//  Array(배열길이).fill(value[, start[, end]])
+// value = 배열에 채울 값
+// start = value 값을 채울 배열의 시작 index이다 기본값0
+// end = value 값을 채울 배열의 종료 index이다 기본값은 arr.length
 
-result = find_max_occurred_alphabet(input);
-console.log(result);
+input
+  .replace(/\s/g, "")
+  .split("")
+  .forEach((char) => {
+    alphabet_occurence_array[char.charCodeAt(0)]++;
+  });
+
+// replace("찾을 문자열", "변경할 문자열")
+// 정규 표현식 \s 란 스페이스, 탭, 폼피드, 줄 바꿈 문자등을 포함한 하나의 공백 문자
+// 정규 표현식 /g 전체 모든 문자열을 변경 global
+
+// string.cahrCodeAt(index)은 index에 해당하는 문자의 unicode값을 리턴해준다
+// string.cahrAt(index)은 index에 해당하는 unicode값을 문자로 리턴해준다
+
+console.log(input);
+// result = find_max_occurred_alphabet(input);
+// console.log(result);
 
 // const a = "acb".charAt(1);
 
