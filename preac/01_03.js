@@ -8,12 +8,17 @@ const alphabet_occurence_array = Array(26).fill(0);
 // start = value 값을 채울 배열의 시작 index이다 기본값0
 // end = value 값을 채울 배열의 종료 index이다 기본값은 arr.length
 
-input
-  .replace(/\s/g, "")
-  .split("")
-  .forEach((char) => {
-    alphabet_occurence_array[char.charCodeAt(0)]++;
-  });
+function isCharLetter(char) {
+  return /[a-zA-Z]/.test(char);
+}
+
+for (char in string) {
+  if (!char.isCharLetter()) {
+    continue;
+  } else {
+    arr_index = char.charCodeAt(0)
+  }
+}
 
 // replace("찾을 문자열", "변경할 문자열")
 // 정규 표현식 \s 란 스페이스, 탭, 폼피드, 줄 바꿈 문자등을 포함한 하나의 공백 문자
