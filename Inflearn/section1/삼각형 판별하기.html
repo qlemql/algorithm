@@ -7,7 +7,40 @@
         <script>
             function solution(a, b, c){
                 let answer="YES", max;
-                
+                let long;
+                let short;
+                let short2;
+                if(a > b) {
+                    long = a;
+                    short = b;
+                }
+                else {
+                    long = b;
+                    short = a;
+                }
+                if(c > long) {
+                    long = c;
+                } else {
+                    short2 = c
+                }
+                if(long <= short + short2) {
+                    return answer
+                } else {
+                    answer = "No"
+                }
+                return answer;
+            }
+
+            console.log(solution(13, 20, 17));
+
+
+            function solution(a, b, c){
+                let answer="YES", max;
+                let sum = (a+b+c);
+                if(a > b) max = a;
+                else max = b;
+                if(c > max) max = c; 
+                if((sum - max) < max) answer="No";
                 return answer;
             }
 
@@ -15,3 +48,7 @@
         </script>
     </body>
 </html>
+
+// 삼각형이 되는 조건을 아는지가 중요..?
+// 제일 긴 변이 다른 두 변의 합보다 작아야한다.
+// 제일 긴 변, 나머지 2개의 변을 각각 변수로 만들었는데 총합 - 제일 긴 변으로 코드를 줄일수있다. 
